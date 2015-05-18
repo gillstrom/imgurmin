@@ -11,7 +11,7 @@ var cli = meow({
 });
 
 if (!cli.input.length) {
-	console.error('Application is required');
+	console.error('Image is required');
 	process.exit(1);
 }
 
