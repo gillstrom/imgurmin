@@ -1,0 +1,31 @@
+{
+  "name": "imgurmin",
+  "version": "1.0.0",
+  "description": "Run an image through imagemin and upload it to Imgur",
+  "license": "MIT",
+  "repository": "gillstrom/imgurmin",
+  "author": {
+    "name": "Andreas Gillström",
+    "email": "andreasgillstrom@gmail.com",
+    "url": "http://github.com/gillstrom"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "bin": "cli.js",
+  "keywords": [
+    "imagemin",
+    "imgurmin",
+    "minify",
+    "image",
+    "imgur",
+    "img"
+  ],
+  "dependencies": {
+    "imagemin": "^3.2.0",
+    "imgur": "^0.1.5",
+    "is-image": "^1.0.0",
+    "meow": "^3.1.0"
+  }
+}
