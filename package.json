@@ -1,7 +1,7 @@
 {
   "name": "imgurmin",
   "version": "1.0.0",
-  "description": "Run an image through imagemin and upload it to Imgur",
+  "description": "Upload a minified image to imgur",
   "license": "MIT",
   "repository": "gillstrom/imgurmin",
   "author": {

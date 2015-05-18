@@ -1,6 +1,6 @@
 # imgurmin
 
-> Run an image through imagemin and upload it to Imgur
+> Upload a minified image to imgur
 
 
 ## Install
