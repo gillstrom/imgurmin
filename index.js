@@ -1,5 +1,4 @@
 'use strict';
-
 var fs = require('fs');
 var imgur = require('imgur');
 var Imagemin = require('imagemin');

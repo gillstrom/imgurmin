@@ -15,6 +15,7 @@
   ],
   "bin": "cli.js",
   "keywords": [
+    "minify image",
     "imagemin",
     "imgurmin",
     "minify",
