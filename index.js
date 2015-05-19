@@ -2,15 +2,11 @@
 
 var fs = require('fs');
 var imgur = require('imgur');
-var isImage = require('is-image');
 var Imagemin = require('imagemin');
+var imageType = require('image-type');
+var readChunk = require('read-chunk');
 
 module.exports = function (img, cb) {
-	if (!isImage(img)) {
-		cb(new Error('Expected an image'));
-		return;
-	}
-
 	fs.stat(img, function (err, stats) {
 		if (err && err.code === 'ENOENT') {
 			cb(new Error('Image doesn\'t exist'));
@@ -22,10 +18,16 @@ module.exports = function (img, cb) {
 			return;
 		}
 
+		if (!imageType(readChunk.sync(img, 0, 12))) {
+			cb(new Error('Expected an image'));
+			return;
+		}
+
 		new Imagemin()
 			.src(img)
 			.run(function (err, files) {
 				if (err) {
+					console.log('imgmin');
 					cb(err);
 					return;
 				}
