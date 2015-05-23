@@ -26,7 +26,7 @@
   "dependencies": {
     "image-type": "^2.0.2",
     "imagemin": "^3.2.0",
-    "imgur": "^0.1.5",
+    "imgur-uploader": "^1.0.0",
     "meow": "^3.1.0",
     "read-chunk": "^1.0.1"
   }
