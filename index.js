@@ -26,7 +26,6 @@ module.exports = function (img, cb) {
 			.src(img)
 			.run(function (err, files) {
 				if (err) {
-					console.log('imgmin');
 					cb(err);
 					return;
 				}
