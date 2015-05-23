@@ -1,6 +1,6 @@
 'use strict';
 var fs = require('fs');
-var imgur = require('imgur');
+var imgurUploader = require('imgur-uploader');
 var Imagemin = require('imagemin');
 var imageType = require('image-type');
 var readChunk = require('read-chunk');
@@ -30,17 +30,14 @@ module.exports = function (img, cb) {
 					return;
 				}
 
-				var b = new Buffer(files[0].contents, 'base64');
-
-				imgur.uploadBase64(b)
-					.then(function (res) {
-						cb(null, res.data.link);
-						return;
-					})
-					.catch(function (err) {
+				imgurUploader(files[0].contents, function (err, res) {
+					if (err) {
 						cb(err);
 						return;
-					});
+					}
+
+					cb(null, res.link);
+				});
 			});
 	});
 };
