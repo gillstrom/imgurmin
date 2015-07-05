@@ -7,7 +7,7 @@ var cli = meow({
 	help: [
 		'Usage',
 		'	$ imgurmin <path-to-image>'
-	].join('\n')
+	]
 });
 
 if (!cli.input.length) {
