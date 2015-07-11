@@ -1,6 +1,6 @@
 # imgurmin
 
-> Upload a minified image to imgur
+> Upload a minified image to imgur.com
 
 
 ## Install
@@ -17,7 +17,7 @@ var imgurmin = require('imgurmin');
 
 imgurmin('image.jpg', function (err, res) {
 	console.log(res);
-	// => http://i.imgur.com/xxxxxx.jpg
+	// => 'http://i.imgur.com/xxxxxx.jpg'
 });
 ```
 
