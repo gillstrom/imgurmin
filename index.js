@@ -6,7 +6,7 @@ var imageType = require('image-type');
 var readChunk = require('read-chunk');
 
 module.exports = function (img, cb) {
-	fs.stat(img, function (err, stats) {
+	fs.stat(img, function (err) {
 		if (err && err.code === 'ENOENT') {
 			cb(new Error('Image doesn\'t exist'));
 			return;
