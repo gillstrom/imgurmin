@@ -1,4 +1,4 @@
-# imgurmin
+# imgurmin [![Build Status](https://travis-ci.org/gillstrom/imgurmin.svg?branch=master)](https://travis-ci.org/gillstrom/imgurmin)
 
 > Upload a minified image to imgur
 
@@ -17,7 +17,7 @@ var imgurmin = require('imgurmin');
 
 imgurmin('image.jpg', function (err, res) {
 	console.log(res);
-	// => http://i.imgur.com/xxxxxx.jpg
+	//=> http://i.imgur.com/xxxxxx.jpg
 });
 ```
 
