@@ -5,23 +5,23 @@
   "license": "MIT",
   "repository": "gillstrom/imgurmin",
   "author": {
-    "name": "Andreas Gillström",
     "email": "andreasgillstrom@gmail.com",
+    "name": "Andreas Gillström",
     "url": "http://github.com/gillstrom"
   },
   "files": [
-    "index.js",
-    "cli.js"
+    "cli.js",
+    "index.js"
   ],
   "bin": "cli.js",
   "keywords": [
-    "minify image",
+    "image",
     "imagemin",
+    "img",
+    "imgur",
     "imgurmin",
     "minify",
-    "image",
-    "imgur",
-    "img"
+    "minify image"
   ],
   "dependencies": {
     "image-type": "^2.0.2",
@@ -29,5 +29,11 @@
     "imgur-uploader": "^1.0.0",
     "meow": "^3.3.0",
     "read-chunk": "^1.0.1"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "devDependencies": {
+    "xo": "^0.5.1"
   }
 }
