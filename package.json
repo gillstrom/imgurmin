@@ -11,10 +11,10 @@
   },
   "bin": "cli.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "scripts": {
-    "test": "xo && node ./test/test.js"
+    "test": "xo && ava"
   },
   "files": [
     "cli.js",
@@ -30,13 +30,22 @@
   ],
   "dependencies": {
     "image-type": "^2.0.2",
-    "imagemin": "^3.2.0",
-    "imgur-uploader": "^1.0.0",
+    "imagemin": "^5.1.2",
+    "imgur-uploader": "^3.0.0",
     "meow": "^3.3.0",
-    "read-chunk": "^1.0.1"
+    "pify": "^2.3.0"
   },
   "devDependencies": {
-    "ava": "^0.0.4",
+    "ava": "*",
     "xo": "*"
+  },
+  "optionalDependencies": {
+    "imagemin-gifsicle": "^5.0.1",
+    "imagemin-jpegtran": "^5.0.1",
+    "imagemin-optipng": "^5.1.0",
+    "imagemin-svgo": "^5.1.0"
+  },
+  "xo": {
+    "esnext": true
   }
 }
