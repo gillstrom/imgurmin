@@ -13,9 +13,9 @@ $ npm install --save imgurmin
 ## Usage
 
 ```js
-var imgurmin = require('imgurmin');
+const imgurmin = require('imgurmin');
 
-imgurmin('image.jpg', function (err, res) {
+imgurmin('image.jpg').then(res => {
 	console.log(res);
 	//=> http://i.imgur.com/xxxxxx.jpg
 });

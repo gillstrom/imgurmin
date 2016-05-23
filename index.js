@@ -1,43 +1,33 @@
 'use strict';
-var fs = require('fs');
-var imgurUploader = require('imgur-uploader');
-var Imagemin = require('imagemin');
-var imageType = require('image-type');
-var readChunk = require('read-chunk');
+const fs = require('fs');
+const imgurUploader = require('imgur-uploader');
+const imagemin = require('imagemin');
+const imageminGifsicle = require('imagemin-gifsicle');
+const imageminJpegtran = require('imagemin-jpegtran');
+const imageminOptipng = require('imagemin-optipng');
+const imageminSvgo = require('imagemin-svgo');
+const imageType = require('image-type');
+const pify = require('pify');
+const fsP = pify(fs);
 
-module.exports = function (img, cb) {
-	fs.stat(img, function (err) {
-		if (err && err.code === 'ENOENT') {
-			cb(new Error('Image doesn\'t exist'));
-			return;
-		}
+module.exports = input => {
+	const read = typeof input === 'string' ? fsP.readFile(input) : Promise.resolve(input);
 
-		if (err) {
-			cb(err);
-			return;
-		}
+	return read
+		.then(buf => {
+			if (!imageType(buf)) {
+				throw new Error('Expected an image');
+			}
 
-		if (!imageType(readChunk.sync(img, 0, 12))) {
-			cb(new Error('Expected an image'));
-			return;
-		}
-
-		new Imagemin()
-			.src(img)
-			.run(function (err, files) {
-				if (err) {
-					cb(err);
-					return;
-				}
-
-				imgurUploader(files[0].contents, function (err, res) {
-					if (err) {
-						cb(err);
-						return;
-					}
-
-					cb(null, res.link);
-				});
+			return imagemin.buffer(buf, {
+				plugins: [
+					imageminGifsicle(),
+					imageminJpegtran(),
+					imageminOptipng(),
+					imageminSvgo()
+				]
 			});
-	});
+		})
+		.then(buf => imgurUploader(buf))
+		.then(res => res.link);
 };
